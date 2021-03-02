@@ -1,29 +1,39 @@
-import { Avatar, Link, List, ListItem, ListItemAvatar, makeStyles, Typography } from '@material-ui/core';
+import { Avatar, createStyles, List, ListItem, ListItemAvatar, makeStyles, Theme, Typography } from '@material-ui/core';
 import React from 'react';
+import Head from 'next/head';
+import Link from 'next/link';
 
-const useStyles = makeStyles({
-    flexContainer: {
-        height: '4rem',
-        display: 'flex',
-        backgroundColor: '#0a72ad',
-    },
-    textColor: {
-        color: 'white',
-    },
-});
+const useStyles = makeStyles((theme: Theme) =>
+    createStyles({
+        flexContainer: {
+            height: '4rem',
+            display: 'flex',
+            backgroundColor: theme.palette.primary.main,
+        },
+        textColor: {
+            color: 'white',
+            '&:hover': {
+                cursor: 'pointer',
+            },
+        },
+    })
+);
 
 export default function Header() {
     const classes = useStyles();
     return(
-        <>
+        <>  
+            <Head>
+                <title>Movie Night</title>
+            </Head>
             <List className={classes.flexContainer} component="nav"> 
                 <ListItem>
-                    <Link href="/" underline='none'>
+                    <Link href="/">
                         <Typography className={classes.textColor}>Home</Typography>
                     </Link>
                 </ListItem>
                 <ListItem> 
-                    <Link href="/liked" underline='none'>
+                    <Link href="/liked">
                         <Typography className={classes.textColor}>My Favourites</Typography>
                     </Link>
                 </ListItem>

@@ -1,16 +1,18 @@
-import { Box, makeStyles, Typography } from '@material-ui/core';
+import { Box, createStyles, makeStyles, Theme, Typography } from '@material-ui/core';
 import React from 'react';
 
-const useStyles = makeStyles({
-    flexContainer: {
-        display: 'flex',
-        height: '10rem',
-        alignItems: 'center',
-        justifyContent: 'space-around',
-        backgroundColor: '#0a72ad',
-        color: 'white',
-    },
-});
+const useStyles = makeStyles((theme: Theme) => 
+    createStyles({
+        flexContainer: {
+            display: 'flex',
+            height: '10rem',
+            alignItems: 'center',
+            justifyContent: 'space-around',
+            backgroundColor: theme.palette.primary.main,
+            color: 'white',
+        },
+    })
+);
 
 
 export default function Footer() {
