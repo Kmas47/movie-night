@@ -1,17 +1,19 @@
 import { Box, Button, Card, CardActionArea, CardActions, CardContent, CardMedia, createStyles, makeStyles, Theme, Typography } from '@material-ui/core';
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
+import { IMovieProps } from '../../../@types/movie';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import { movieYear } from '../../../utils/helpers';
-import { store } from '../../store/store';
-import { IMovieProps } from '../../../@types/movie';
-import { usehandleLike } from '../../store/handleLike';
 import ShareIcon from '@material-ui/icons/Share';
-
+import { store } from '../../store/store';
+import { usehandleLike } from '../../store/handleLike';
 
 const useStyles = makeStyles((theme: Theme) => 
     createStyles({
         root: {
-            maxWidth: 300,
+            maxWidth: 345,
+            [theme.breakpoints.down('lg')]: {
+                maxWidth: 300,
+            },
             [theme.breakpoints.down('sm')]: {
                 maxWidth: "100%",
             },
@@ -22,7 +24,7 @@ const useStyles = makeStyles((theme: Theme) =>
     })
 );
 
-export function Movies({
+export default function MovieCard({
     movieId,
     image,
     title,
@@ -32,13 +34,10 @@ export function Movies({
     color,
     language,
     }: IMovieProps) {
-
     const classes = useStyles();
-    
+     
     const globalState = useContext(store);
     const { dispatch }: any = globalState;
-    const [liked, setLiked] = useState('#dedcdc');
-
     
     const data = {
         movieId: movieId,
@@ -47,8 +46,8 @@ export function Movies({
         ratings: votes,
         description: description,
         relaseDate: releaseDate,
-        color: liked,
         language: language,
+        color: color,
     }
 
     return(
@@ -58,7 +57,7 @@ export function Movies({
                     <CardMedia
                     component="img"
                     alt={title}
-                    height="300"
+                    height="250"
                     image={process.env.NEXT_PUBLIC_IMAGE_URL+image}
                     title={title}
                     />
@@ -80,8 +79,8 @@ export function Movies({
                     </CardContent>
                 </CardActionArea>
                 <CardActions className={classes.justifyContent}>
-                    <Button size="small" onClick={() => usehandleLike(data, setLiked, dispatch)} >
-                        <FavoriteIcon fontSize="large" style={{ color: (color ? color : liked) }} />
+                    <Button size="small" onClick={() => usehandleLike(data, null, dispatch)} >
+                        <FavoriteIcon fontSize="large" style={{ color: color }} />
                     </Button>
                     <Button size="small" color="primary">
                         <ShareIcon fontSize="large"  />

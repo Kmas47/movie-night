@@ -3,7 +3,6 @@ import { QueryClient, QueryClientProvider } from "react-query";
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { ThemeProvider } from "@material-ui/core";
 import theme from "../src/theme";
-import { Context } from "../client/store/context";
 import { StateProvider } from "../client/store/store";
 
 
