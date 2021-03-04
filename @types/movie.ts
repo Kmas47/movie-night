@@ -11,3 +11,12 @@ export interface IMovieProps {
     color?: string;
     language?: string;
 }
+
+export interface IMovie {
+    state: IMovieState;
+    dispatch: Function;
+}
+
+export interface IMovieState {
+    arr: IMovieProps[];
+}

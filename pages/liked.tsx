@@ -1,5 +1,6 @@
 import { Box, createStyles, makeStyles, Theme } from '@material-ui/core';
 import React, { useContext } from 'react';
+import { IMovie } from '../@types/movie';
 import { IProps } from '../@types/store';
 import MovieCard from '../client/components/MovieList/movieCard';
 import { Layout } from '../client/components/Theme/layout';

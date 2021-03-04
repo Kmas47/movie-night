@@ -1,7 +1,7 @@
 import React, { createContext, useReducer } from 'react';
-import { IState } from '../../@types/store';
 
-const initialState: IState = { arr: [] };
+
+const initialState: unknown = { arr: [] };
 const store = createContext(initialState);
 const { Provider } = store;
 
