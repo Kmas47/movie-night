@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 export default function MyFavourites() {
-    const globalState: IProps = useContext(store);
+    const globalState: any = useContext(store);
     const classes = useStyles();
 
     return(

@@ -5,7 +5,6 @@ export interface IProps {
     dispatch: Function;
 }
 
-
 export interface IState {
-    arr: IMovieProps[];
+    arr: any;
 }

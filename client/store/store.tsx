@@ -6,7 +6,7 @@ const store = createContext(initialState);
 const { Provider } = store;
 
 const StateProvider = ( { children } ) => {
-    const [state, dispatch]: any = useReducer((state, action) => {
+    const [state, dispatch] = useReducer((state, action) => {
         switch(action.type) {
             case 'LIKE':
             return {
@@ -14,9 +14,6 @@ const StateProvider = ( { children } ) => {
                 arr: [...state.arr, action.payload],
             }
             case 'UNLIKE':
-                console.log("Unlike");
-                console.log("MovieID:", action.payload.movieId);
-                console.log("Movie Color:", action.payload.color);
             return {
                 arr: [...state.arr.filter(movie => movie.movieId != action.payload.movieId)],
             }
