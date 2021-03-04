@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { QueryClient, QueryClientProvider } from "react-query";
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { ThemeProvider } from "@material-ui/core";
@@ -6,13 +6,9 @@ import theme from "../src/theme";
 import { StateProvider } from "../client/store/store";
 
 
- 
 const queryClient = new QueryClient()
 
 function MyApp({ Component, pageProps }) {
-
-  const [value, setValue] = useState([]);
-
   React.useEffect(() => {
     
     const jssStyles = document.querySelector('#jss-server-side');
