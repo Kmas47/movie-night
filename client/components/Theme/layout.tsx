@@ -5,18 +5,19 @@ import React from 'react';
 const useStyles = makeStyles((theme: Theme) => 
     createStyles({
         layout: {
+            top: '4rem',
             backgroundColor: "white",
             [theme.breakpoints.up('xl')]: {
-                margin: '0 20%',
+                margin: '3% 20% 0 20%',
             },
             [theme.breakpoints.down('lg')]: {
-                margin: '0 10%',
+                margin: '3% 10% 0% 10%',
             },
             [theme.breakpoints.down('md')]: {
-                margin: '0 5%',
+                margin: '4% 5% 0 5%',
             },
             [theme.breakpoints.down('sm')]: {
-                margin: '0%',
+                margin: '10% 0% 0% 0%',
             },
         },
         

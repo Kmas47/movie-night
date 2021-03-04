@@ -1,14 +1,18 @@
-import { Avatar, createStyles, List, ListItem, ListItemAvatar, makeStyles, Theme, Typography } from '@material-ui/core';
 import React from 'react';
-import Head from 'next/head';
 import Link from 'next/link';
+import Head from 'next/head';
+import { Avatar, createStyles, List, ListItem, ListItemAvatar, makeStyles, Theme, Typography } from '@material-ui/core';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         flexContainer: {
+            top: '0',
+            width: '100%',
+            position: 'fixed',
             height: '4rem',
             display: 'flex',
             backgroundColor: theme.palette.primary.main,
+            zIndex: 101,
         },
         textColor: {
             color: 'white',
